@@ -1,0 +1,22 @@
+{
+  "produtos": [
+    {
+      "id": "ae2c",
+      "nome": "Beterraba",
+      "categoria": "Alimento",
+      "preço": "R$8,70"
+    },
+    {
+      "id": "a32c",
+      "nome": "Melancia",
+      "categoria": "Alimento",
+      "preço": "R$9,80"
+    },
+    {
+      "id": "a52c",
+      "nome": "Carne",
+      "categoria": "Alimento",
+      "preço": "R$17,50"
+    }
+  ]
+}
