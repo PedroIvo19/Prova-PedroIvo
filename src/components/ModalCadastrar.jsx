@@ -12,22 +12,21 @@ const url = "http://localhost:5000/usuarios";
 const ModalCadastrar = (props) => {
 
     const [nome, setNome] = useState("");
-    const [email, setEmail] = useState("");
-    const [senha, setSenha] = useState("");
-    const [tipo, setTipo] = useState("Administrador");
+    const [categoria, setCategoria] = useState("");
+    const [preco, setPreco] = useState("");
 
 
     const handleCadastrar = async () => {
-        if(nome != "" && email != "" && senha != ""){
-            const user = { nome, email, senha, tipo };
+        if(nome != "" && categoria != "" && preco != ""){
+            const user = { nome, categoria, preco};
             const res = await fetch(url, {
                 method: "POST",
                 headers: { "Conten-Type": "application/json" },
                 body: JSON.stringify(user),
         });
         setNome("");
-        setEmail("");
-        setSenha("");
+        setCategoria("");
+        setPreco("");
         alert("Usuário cadastrado com sucesso");
         props.onHide()
     } else {
@@ -72,15 +71,15 @@ const ModalCadastrar = (props) => {
               {/* caixinha do email */}
           <FloatingLabel
             controlId="floatingInputEmail"
-            label="Email"
+            label="Categoria"
             className="mb-3"
           >
             <Form.Control
-              type="email"
+              type="Categoria"
               placeholder="name@example.com"
-              value={email}
+              value={categoria}
               onChange={(e) => {
-                setEmail(e.target.value);
+                setCategoria(e.target.value);
               }}
             />
           </FloatingLabel>
@@ -89,38 +88,18 @@ const ModalCadastrar = (props) => {
            {/* caixinha da senha */}
           <FloatingLabel
             controlId="floatingSenha"
-            label="Senha"
+            label="Preço"
             className="mb-3"
           >
             <Form.Control
-              type="password"
-              placeholder="Password"
-              value={senha}
+              type="preco"
+              placeholder="Preço"
+              value={preco}
               onChange={(e) => {
-                setSenha(e.target.value);
+                setPreco(e.target.value);
               }}
             />
           </FloatingLabel>   
-
-
-
-       
-
-            {/* caixinha tipo */}
-        <Form.Group  controlId="formGridTipo">
-          <Form.Label>Tipo</Form.Label>
-          <Form.Select 
-            value={tipo}
-            onChange={(e) =>{
-                setTipo(e.target.value)
-            }}
-            >
-            <option>Administrador</option>
-            <option>Gerente</option>
-            <option>Funcionário</option>
-          </Form.Select>
-        </Form.Group>
-
 
 
 
