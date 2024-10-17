@@ -1,19 +1,26 @@
 // src/pages/CadastroProdutos.jsx
 import React, { useContext, useState } from 'react';
-import { ProdutoContext } from '../context/ProdutoContext.jsx'; // Certifique-se de que está correto
 import { Button, Form, Row, Col } from 'react-bootstrap';
 import NavBar from '../components/NavBar';
+import ModalCadastrar from '../components/ModalCadastrar.jsx';
+
+const url = "http://localhost:5000/produtos";
 
 
 const CadastroProdutos = () => {
-  const { produtos, setProdutos } = useContext(ProdutoContext);
+  const { produtos, setProdutos } = useState([]);
   const [nome, setNome] = useState('');
   const [categoria, setCategoria] = useState('');
   const [preco, setPreco] = useState('');
 
-  const handleCadastrar = () => {
+  const handleCadastrar = async () => {
       const novoProduto = { nome, categoria, preco };
-      setProdutos([...produtos, novoProduto]); // Adiciona o novo produto à lista
+      const res = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(novoProduto),
+      });
+      
       setNome('');
       setCategoria('');
       setPreco('');
@@ -28,7 +35,7 @@ const CadastroProdutos = () => {
                     <Form.Control
                         size="lg"
                         type="text"
-                        placeholder="Digite o produto"
+                        placeholder="ex: Carne"
                         value={nome}
                         onChange={(e) => setNome(e.target.value)}
                     />
@@ -40,7 +47,7 @@ const CadastroProdutos = () => {
                 <Col>
                     <Form.Control
                         type="text"
-                        placeholder="Digite sua categoria"
+                        placeholder="Alimento"
                         value={categoria}
                         onChange={(e) => setCategoria(e.target.value)}
                     />
@@ -53,7 +60,7 @@ const CadastroProdutos = () => {
                     <Form.Control
                         size="sm"
                         type="text"
-                        placeholder="Digite seu preço"
+                        placeholder="ex: R$10,00"
                         value={preco}
                         onChange={(e) => setPreco(e.target.value)}
                     />

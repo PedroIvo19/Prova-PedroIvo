@@ -4,37 +4,43 @@
       "id": "ae2c",
       "nome": "Beterraba",
       "categoria": "Alimento",
-      "preço": "R$8,70"
+      "preco": "R$8,70"
     },
     {
       "id": "ae4c",
       "nome": "Cenoura",
       "categoria": "Alimento",
-      "preço": "R$5,70"
+      "preco": "R$5,70"
     },
     {
       "id": "ae5c",
       "nome": "Carne",
       "categoria": "Alimento",
-      "preço": "R$15,70"
+      "preco": "R$15,70"
     },
     {
       "id": "ae6c",
       "nome": "Melância",
       "categoria": "Alimento",
-      "preço": "R$8,70"
+      "preco": "R$8,70"
     },
     {
       "id": "ae7c",
       "nome": "Miojo",
       "categoria": "Alimento",
-      "preço": "R$3,50"
+      "preco": "R$3,50"
     },
     {
-      "id": "ae8c",
-      "nome": "Biscoito Maizena",
-      "categoria": "Alimento",
-      "preço": "R$3,50"
+      "id": "187d",
+      "nome": "boi",
+      "categoria": "açougue",
+      "preco": "10"
+    },
+    {
+      "id": "0eb6",
+      "nome": "boi2",
+      "categoria": "açougue",
+      "preco": "10"
     }
   ]
 }

@@ -70,7 +70,7 @@ const Produtos = () => {
                 <td>{produto.id}</td>
                 <td>{produto.nome}</td>
                 <td>{produto.categoria}</td>
-                <td>{produto.preço}</td>
+                <td>{produto.preco}</td>
                 <td>                
                   <ButtonGroup size="sm">
                     <Button 

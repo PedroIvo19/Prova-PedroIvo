@@ -1,0 +1,28 @@
+ npx create-react-app <name>     PASTA: documents/React
+
+ cd <name>
+
+ 1°Bash-Front-end
+ Antes do Bash, o db.json(Dentro da pasta Data)!!!
+
+ npm start--localHost Aparecer
+
+ Json-server: npm install json-server
+ Bootstrap: npm install react-bootstrap bootstrap
+ React Router DOM: npm install react-router-dom
+
+ 2°Bash-Back-end
+ cd crud-com-react
+
+    npm run server-Vai aparecer endpoints0
+
+Final Git add .
+git commit-m""
+git branch -M main
+git remote add origin ---
+
+ERROR
+
+git remote remove origin(Repetir se der o erro acima)
+
+git push-u origin main
