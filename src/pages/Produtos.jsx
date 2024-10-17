@@ -1,111 +1,94 @@
 import Table from 'react-bootstrap/Table';
-import NavBar from '../components/NavBar'
+import NavBar from '../components/NavBar';
 import React, { useState, useEffect } from "react";
 import '../App.css';
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/esm/Container";
 import ModalCadastrar from "../components/ModalCadastrar.jsx";
-
-
+import { ProdutoContext } from '../context/ProdutoContext.jsx'; // Certifique-se de que está correto
 
 
 const url = "http://localhost:5000/produtos";
 
 const Produtos = () => {
-  const [modalCadastrar, setModalCadastrar] = React.useState(false);
+  const [modalCadastrar, setModalCadastrar] = useState(false);
+  const [produtos, setProdutos] = useState([]);
 
-  //Lista de usuarios
-  const [usuarios, setUsuarios] = useState([])
-
-  //Resgate de dados da API
   useEffect(() => {
-
     async function fetchData() {
-      try{
-        const res = await fetch(url)
-        const users = await res.json()
-        setUsuarios(users)
-      }
-      catch(error){
-        console.log(error.mensage)
+      try {
+        const res = await fetch(url);
+        const data = await res.json();
+        setProdutos(data);
+      } catch (error) {
+        console.log(error.message);
       }
     }
-    fetchData()
-
+    fetchData();
   }, []);
 
-
-
-
+  const handleDelete = async (id) => {
+    try {
+      const res = await fetch(`http://localhost:5000/produtos/${id}`, {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+      });
+      
+      if (res.ok) {
+        const produtoRemovido = await res.json();
+        alert(`Produto ${produtoRemovido.nome} foi excluído`);
+        // Atualiza a lista de produtos após a exclusão
+        setProdutos(produtos.filter(produto => produto.id !== id));
+      } else {
+        alert("Erro ao excluir o produto.");
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
   return (
     <div>
-      <NavBar></NavBar>
+      <NavBar />
       <Container>
-        <h1>Lista de algo</h1>
-        <div className="d-grid col-3 gap-2">
-          <Button
-            variant="primary"
-            size="lg"
-            className="mb-3 d-inline-flex justify-content-center"
-            onClick={() => {
-              setModalCadastrar(true)
-            }}
-          >
-            <span
-              className="material-symbols-outlined flex"
-              style={{ fontSize: "30px" }}
-            >
-             
-            </span>
-            Cadastrar
-          </Button>
-        </div>
-
+        <h1>Lista de Produtos</h1>
+        
         <Table striped bordered hover>
           <thead>
             <tr>
               <th>#</th>
               <th>Nome</th>
-              <th>Email</th>
-              <th>Tipo</th>
+              <th>Categoria</th>
+              <th>Preço</th>
               <th></th>
             </tr>
           </thead>
           <tbody>
-            {usuarios.map((produtos) => (
-           
-            <tr key = {produtos.id}>
-              <td>{produtos.id}</td>
-              <td>{produtos.nome}</td>
-              <td>{produtos.categoria}</td>
-              <td>{produtos.preço}</td>
-              <td>                
-                <ButtonGroup size="sm">
-                                   
-                  <Button variant="danger"
-                  onClick={async() =>{
-                    const res = await fetch(
-                      `http://localhost:5000/usuarios/${produtos.id}`,{
-                        method:"DELETE",
-                        headers: {"Content-Type": "application/json"},
-                      })
-                      const funcionarioRemovido = await res.json()
-                      alert(`Usuário $ {funcionarioRemovido.nome} foi excluido`)
-                  }}
-                  
-                  >Excluir</Button>
-                </ButtonGroup>
-              </td>
-            </tr>
+            {produtos.map((produto) => (
+              <tr key={produto.id}>
+                <td>{produto.id}</td>
+                <td>{produto.nome}</td>
+                <td>{produto.categoria}</td>
+                <td>{produto.preço}</td>
+                <td>                
+                  <ButtonGroup size="sm">
+                    <Button 
+                      variant="danger"
+                      onClick={() => handleDelete(produto.id)}
+                    >
+                      Excluir
+                    </Button>
+                  </ButtonGroup>
+                </td>
+              </tr>
             ))}
           </tbody>
         </Table>
         <ModalCadastrar 
           show={modalCadastrar}
           onHide={() => {
-            setModalCadastrar(false)
+            setModalCadastrar(false);
           }}
         />
       </Container>
@@ -113,4 +96,4 @@ const Produtos = () => {
   );
 };
 
-export default Produtos
+export default Produtos;

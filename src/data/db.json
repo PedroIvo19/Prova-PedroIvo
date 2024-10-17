@@ -7,16 +7,34 @@
       "preço": "R$8,70"
     },
     {
-      "id": "a32c",
-      "nome": "Melancia",
+      "id": "ae4c",
+      "nome": "Cenoura",
       "categoria": "Alimento",
-      "preço": "R$9,80"
+      "preço": "R$5,70"
     },
     {
-      "id": "a52c",
+      "id": "ae5c",
       "nome": "Carne",
       "categoria": "Alimento",
-      "preço": "R$17,50"
+      "preço": "R$15,70"
+    },
+    {
+      "id": "ae6c",
+      "nome": "Melância",
+      "categoria": "Alimento",
+      "preço": "R$8,70"
+    },
+    {
+      "id": "ae7c",
+      "nome": "Miojo",
+      "categoria": "Alimento",
+      "preço": "R$3,50"
+    },
+    {
+      "id": "ae8c",
+      "nome": "Biscoito Maizena",
+      "categoria": "Alimento",
+      "preço": "R$3,50"
     }
   ]
 }

@@ -3,3 +3,7 @@
 }
 
 
+body {
+  background-color: green; /* Altere para a cor desejada */
+  color: white; /* Opcional: altera a cor do texto para melhorar a legibilidade */
+}

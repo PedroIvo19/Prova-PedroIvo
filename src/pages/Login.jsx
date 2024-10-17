@@ -1,145 +1,84 @@
-import React from 'react'
+import React from 'react';
 import Container from 'react-bootstrap/esm/Container';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
-import Nav from "react-bootstrap/Nav"
-import { BrowserRouter, Route, Routes} from 'react-router-dom';
-
-
-import { useState, useEffect } from 'react';
-
-const url = "http://localhost:5000/usuarios";
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const [usuario, setUsuario] = useState("");
+  const [senha, setSenha] = useState("");
+  
+  const [alertaClass, setAlertaClass] = useState("m-3 d-none");
+  const [alertaMensagem, setAlertaMensagem] = useState("");
+  const [alertaVariant, setAlertaVariant] = useState("danger");
+  
+  const navigate = useNavigate(); // Hook para navegação
 
-    
-    const [email='admin@gmail.com', setEmail] = useState("")
-    const [senha = '4321', setSenha] = useState("")
-    
-
-    //variaveis pro alerta
-    const [alertaClass, setAlertaClass] = useState(" m-3 d-none")
-    const [alertaMensagem, setAlertaMensagem] = useState("")
-    const [alertaVariant, setAlertaVariant] = useState("danger")
-
-  //Lista de usuarios
-  const [usuarios, setUsuarios] = useState([])
-
-  //Resgate de dados da API
-  useEffect(() => {
-
-    async function fetchData() {
-      try{
-        const res = await fetch(url)
-        const users = await res.json()
-        setUsuarios(users)
-      }
-      catch(error){
-        console.log(error.mensage)
-      }
+  const handleLogin = (e) => {
+    e.preventDefault();
+  
+    // Verifica se os campos não estão vazios
+    if (usuario === "") {
+      setAlertaClass("mb-3");
+      setAlertaMensagem("O campo usuário não pode ser vazio");
+      return;
     }
-    fetchData()
-
-  }, []);
-
-
-  const gravarLocalStorage = (usuario) => {
-    localStorage.setItem("userName", usuario.nome)
-    localStorage.setItem("userEmail", usuario.email)
-
-  }
-
-  const handleLogin = async (e) => {
-    e.preventDefault()
-
-    const user = {email,senha}
-
-    const userToFind = usuarios.find(
-      (userFind) => userFind.email == user.email
-    )
-
-
-    if(email === "admin@gmail.com") {
-      if(senha != "4321") {
-        if(userToFind != undefined && userToFind.senha == senha){
-          console.log(userToFind)
-          console.log("entrou")
-          setAlertaClass("mb-3")
-          gravarLocalStorage(userToFind)       
-          alert("Login efetuado com sucesso !")  
-          setAlertaMensagem("Login efetuado com sucesso !")
-          setAlertaVariant("sucess")
-          
-         
-
-        }else{
-        setAlertaClass("mb-3")
-        setAlertaMensagem("Usuário ou senha incorreto !")   
-        }
-      }
-      else{
-        setAlertaClass("mb-3")
-        setAlertaMensagem("O campo senha não pode ser vazio")      
-      }
-
+  
+    if (senha === "") {
+      setAlertaClass("mb-3");
+      setAlertaMensagem("O campo senha não pode ser vazio");
+      return;
     }
-    else{
-      setAlertaClass("mb-3")
-      setAlertaMensagem("O campo email não pode ser vazio")      
+  
+    // Valida o usuário e a senha
+    if (usuario === "admin" && senha === "4321") {
+      setAlertaClass("m-3 d-none");
+      alert("Login efetuado com Sucesso");
+      navigate('/produtos'); // Redireciona para a página de produtos
+    } else {
+      setAlertaClass("mb-3");
+      setAlertaMensagem("Usuário ou senha inválidos");
     }
-
-  }
-
+  };
 
   return (
     <div>
-        <Container>
-        <span class="material-symbols-outlined" style={{fontSize:"100px"}}>
-login
-</span>
-    
+      <Container>
+        <span className="material-symbols-outlined" style={{ fontSize: "100px" }}>
+          login
+        </span>
 
-            <form onSubmit={handleLogin}>      
-        {/* caixinha do email */}
-          <FloatingLabel
-        controlId="floatingInputEmail"
-        label="Email"
-        className="mb-3"
-      >
-        <Form.Control type="email"
-         placeholder="name@example.com"
-        value={email}
-        onChange={(e) => {setEmail(e.target.value)}}/>
-      </FloatingLabel>
+        <form onSubmit={handleLogin}>
+          <FloatingLabel controlId="floatingInputUsuario" label="Usuário" className="mb-3">
+            <Form.Control
+              type="text"
+              placeholder="name@example.com"
+              value={usuario}
+              onChange={(e) => { setUsuario(e.target.value) }}
+            />
+          </FloatingLabel>
 
+          <FloatingLabel controlId="floatingSenha" label="Senha" className='mb-3'>
+            <Form.Control
+              type="password"
+              placeholder="Password"
+              value={senha}
+              onChange={(e) => { setSenha(e.target.value) }}
+            />
+          </FloatingLabel>
 
-      {/* caixinha da senha */}
-      <FloatingLabel controlId="floatingSenha"
-      label="Senha"
-       className='mb-3'
-       >
-        <Form.Control type="password"
-        placeholder="Password"
-        value={senha}
-        onChange={(e) => {setSenha(e.target.value)}} />
-      </FloatingLabel>
+          <Alert key="danger" variant={alertaVariant} className={alertaClass}>
+            {alertaMensagem}
+          </Alert>
 
-     
-
-      <Alert key="danger" variant={alertaVariant} className={alertaClass}>
-          {alertaMensagem}
-        </Alert>
-
-        <Button variant="primary" type="submit">Login</Button>{' '}
-
+          <Button variant="primary" type="submit">Login</Button>{' '}
         </form>
-
-        
       </Container>
     </div>
-  )
+  );
 }
 
-export default Login
+export default Login;
