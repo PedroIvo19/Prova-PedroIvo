@@ -34,7 +34,7 @@ const Login = () => {
     }
   
     // Valida o usuário e a senha
-    if (usuario === "admin" && senha === "4321") {
+    if (usuario === "docemel@sodoce.com.br" && senha === "brigadeiro123") {
       setAlertaClass("m-3 d-none");
       alert("Login efetuado com Sucesso");
       navigate('/produtos'); // Redireciona para a página de produtos

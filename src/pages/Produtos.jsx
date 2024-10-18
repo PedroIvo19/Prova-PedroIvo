@@ -49,7 +49,7 @@ const Produtos = () => {
   };
 
   return (
-    <div>
+    <div style={{ backgroundColor: '#ffcbdb', minHeight: '100vh', color: 'white' }}>
       <NavBar />
       <Container>
         <h1>Lista de Produtos</h1>

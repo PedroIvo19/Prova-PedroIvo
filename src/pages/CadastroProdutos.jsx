@@ -27,15 +27,15 @@ const CadastroProdutos = () => {
   };
 
     return (
-        <div style={{ backgroundColor: 'green' }}>
+        <div style={{ backgroundColor: '#ffcbdb', minHeight: '100vh', color: 'white' }}>
             <NavBar />
             <Row>
-                <Form.Label column="lg" lg={2}>Nome Produto</Form.Label>
+                <Form.Label column="lg" lg={2}>Nome Doce :</Form.Label>
                 <Col>
                     <Form.Control
                         size="lg"
                         type="text"
-                        placeholder="ex: Carne"
+                        placeholder="ex: Bolo"
                         value={nome}
                         onChange={(e) => setNome(e.target.value)}
                     />
@@ -43,11 +43,11 @@ const CadastroProdutos = () => {
             </Row>
             <br />
             <Row>
-                <Form.Label column lg={2}>Categoria</Form.Label>
+                <Form.Label column lg={2}>Tipo :</Form.Label>
                 <Col>
                     <Form.Control
                         type="text"
-                        placeholder="Alimento"
+                        placeholder="Digite qual o tipo"
                         value={categoria}
                         onChange={(e) => setCategoria(e.target.value)}
                     />
@@ -55,7 +55,7 @@ const CadastroProdutos = () => {
             </Row>
             <br />
             <Row>
-                <Form.Label column="sm" lg={2}>Preço</Form.Label>
+                <Form.Label column="sm" lg={2}>Preço :</Form.Label>
                 <Col>
                     <Form.Control
                         size="sm"

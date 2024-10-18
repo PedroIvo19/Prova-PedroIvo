@@ -9,7 +9,7 @@ import { ProdutoProvider } from './context/ProdutoContext.jsx'; // Certifique-se
 function App() {
     return (
         <ProdutoProvider>
-            <div className="App" style={{ backgroundColor: 'green', minHeight: '100vh', color: 'white' }}>
+            <div className="App">
                 <BrowserRouter>
                     <Routes>
                         <Route path='/produtos' element={<Produtos />} />

@@ -1,46 +1,52 @@
 {
   "produtos": [
     {
-      "id": "ae2c",
-      "nome": "Beterraba",
-      "categoria": "Alimento",
-      "preco": "R$8,70"
+      "id": "f46b",
+      "nome": "Bolo",
+      "categoria": "doce",
+      "preco": "R$20,00"
     },
     {
-      "id": "ae4c",
-      "nome": "Cenoura",
-      "categoria": "Alimento",
-      "preco": "R$5,70"
+      "id": "2f80",
+      "nome": "Refrigerante",
+      "categoria": "bebida",
+      "preco": "R$4,50"
     },
     {
-      "id": "ae5c",
-      "nome": "Carne",
-      "categoria": "Alimento",
-      "preco": "R$15,70"
+      "id": "edeb",
+      "nome": "Torta",
+      "categoria": "doce",
+      "preco": "R$25,00"
     },
     {
-      "id": "ae6c",
-      "nome": "Melância",
-      "categoria": "Alimento",
-      "preco": "R$8,70"
+      "id": "b605",
+      "nome": "Sukita",
+      "categoria": "refrigerante",
+      "preco": "R$2,50"
     },
     {
-      "id": "ae7c",
-      "nome": "Miojo",
-      "categoria": "Alimento",
-      "preco": "R$3,50"
+      "id": "c07f",
+      "nome": "Pavê",
+      "categoria": "doce",
+      "preco": "R$17,00"
     },
     {
-      "id": "187d",
-      "nome": "boi",
-      "categoria": "açougue",
-      "preco": "10"
+      "id": "fdd7",
+      "nome": "Brigadeiro",
+      "categoria": "doce",
+      "preco": "R$4,70"
     },
     {
-      "id": "0eb6",
-      "nome": "boi2",
-      "categoria": "açougue",
-      "preco": "10"
+      "id": "cef0",
+      "nome": "Torta de limão",
+      "categoria": "doce",
+      "preco": "R$18,00"
+    },
+    {
+      "id": "3e03",
+      "nome": "Brisadeiro",
+      "categoria": "doce",
+      "preco": "R$4,20"
     }
   ]
 }
