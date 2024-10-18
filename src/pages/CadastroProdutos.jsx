@@ -27,7 +27,7 @@ const CadastroProdutos = () => {
   };
 
     return (
-        <div style={{ backgroundColor: '#ffcbdb', minHeight: '100vh', color: 'white' }}>
+        <div style={{ backgroundColor: '#ffcbdb', minHeight: '100vh', color: 'red' }}>
             <NavBar />
             <Row>
                 <Form.Label column="lg" lg={2}>Nome Doce :</Form.Label>
@@ -43,11 +43,11 @@ const CadastroProdutos = () => {
             </Row>
             <br />
             <Row>
-                <Form.Label column lg={2}>Tipo :</Form.Label>
+                <Form.Label column="lg" lg={2}>Tipo :</Form.Label>
                 <Col>
                     <Form.Control
                         type="text"
-                        placeholder="Digite qual o tipo"
+                        placeholder="ex: doce, refrigerante, doce gelado, etc"
                         value={categoria}
                         onChange={(e) => setCategoria(e.target.value)}
                     />
@@ -55,7 +55,7 @@ const CadastroProdutos = () => {
             </Row>
             <br />
             <Row>
-                <Form.Label column="sm" lg={2}>Preço :</Form.Label>
+                <Form.Label column="lg" lg={2}>Preço :</Form.Label>
                 <Col>
                     <Form.Control
                         size="sm"
@@ -65,9 +65,10 @@ const CadastroProdutos = () => {
                         onChange={(e) => setPreco(e.target.value)}
                     />
                 </Col>
-                <Button variant="outline-warning" onClick={handleCadastrar}>
-                    Adicionar
-                </Button>
+                <Button variant="primary" size="lg" onClick={handleCadastrar}>
+          Adicionar Produto
+        </Button>{' '}
+                
             </Row>
         </div>
     );

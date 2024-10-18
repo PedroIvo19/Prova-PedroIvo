@@ -45,7 +45,7 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div style={{ backgroundColor: '#ffcbdb', minHeight: '100vh', color: 'red' }}>
       <Container>
         <span className="material-symbols-outlined" style={{ fontSize: "100px" }}>
           login

@@ -7,12 +7,6 @@
       "preco": "R$20,00"
     },
     {
-      "id": "2f80",
-      "nome": "Refrigerante",
-      "categoria": "bebida",
-      "preco": "R$4,50"
-    },
-    {
       "id": "edeb",
       "nome": "Torta",
       "categoria": "doce",
@@ -47,6 +41,12 @@
       "nome": "Brisadeiro",
       "categoria": "doce",
       "preco": "R$4,20"
+    },
+    {
+      "id": "6fd4",
+      "nome": "Coca-Cola",
+      "categoria": "refrigerante",
+      "preco": "R$6,00"
     }
   ]
 }

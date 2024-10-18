@@ -49,7 +49,7 @@ const Produtos = () => {
   };
 
   return (
-    <div style={{ backgroundColor: '#ffcbdb', minHeight: '100vh', color: 'white' }}>
+    <div style={{ backgroundColor: '#ffcbdb', minHeight: '100vh', color: 'red' }}>
       <NavBar />
       <Container>
         <h1>Lista de Produtos</h1>
@@ -59,7 +59,7 @@ const Produtos = () => {
             <tr>
               <th>#</th>
               <th>Nome</th>
-              <th>Categoria</th>
+              <th>Tipo</th>
               <th>Preço</th>
               <th></th>
             </tr>
